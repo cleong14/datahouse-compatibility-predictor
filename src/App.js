@@ -5,15 +5,30 @@ import CompatibilityChecker from './CompatibilityChecker';
 import db from './db.json';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      scoredApplicants:[]
+    }
+  }
 
   checker = () => {
-    console.log('CLICKED');
-    console.log('APPLICANTS', db.applicants);
-    console.log('TEAM', db.team);
+    let totalPossible = 40;
+
+    db.applicants.map((applicant) => {
+      let score = (applicant.attributes.endurance + applicant.attributes.intelligence + applicant.attributes.strength + applicant.attributes.spicyFoodTolerance) / 40;
+
+      this.state.scoredApplicants.push({
+        name: applicant.name,
+        score: score
+      });
+    });
+    console.log('STATE AT END', this.state);
   }
 
   render() {
-    console.log(db);
+    console.log('STATE', this.state);
     return (
       <div className="App">
         <header className="App-header">
