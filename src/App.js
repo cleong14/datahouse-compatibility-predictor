@@ -11,8 +11,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          SANITY CHECK
-          {console.log('SANITY CHECK')}
+          Datahouse - Compatibility Predictor
         </p>
       </div>
     );
