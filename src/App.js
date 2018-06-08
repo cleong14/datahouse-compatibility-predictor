@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './datahouse-logo.png';
 import './App.css';
 import CompatibilityChecker from './CompatibilityChecker';
+import Results from './Results';
 import db from './db.json';
 
 class App extends Component {
@@ -27,8 +28,10 @@ class App extends Component {
     console.log('STATE AT END', this.state);
   }
 
+
   render() {
     console.log('STATE', this.state);
+
     return (
       <div className="App">
         <header className="App-header">
@@ -85,10 +88,10 @@ class App extends Component {
           <div className="results col-md-4">
             <h3 className="header">Results</h3>
 
-
+            <Results />
           </div>
         </div>
-        <CompatibilityChecker db={db} checker={this.checker} />
+        <CompatibilityChecker db={db} checker={this.checker} scoredApplicants={this.state.scoredApplicants} />
       </div>
     );
   }
